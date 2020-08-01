@@ -1,47 +1,42 @@
-ThinkPHP 6.0
+tan-智能地摊系统
 ===============
 
-> 运行环境要求PHP7.1+。
+> 运行环境要求PHP7.1+，数据库版本为MySQL 8.0。后端使用ThinkPHP框架开发，前端使用jq+bootstrap。
 
-[官方应用服务市场](https://www.thinkphp.cn/service) | [`ThinkPHP`开发者扶持计划](https://sites.thinkphp.cn/1782366)
+完全前后端分离的demo项目，一个简单好用的商城管理系统。
 
-ThinkPHPV6.0版本由[亿速云](https://www.yisu.com/)独家赞助发布。
+## 已实现功能
 
-## 主要新特性
+* 注册登录
+* 商品管理
 
-* 采用`PHP7`强类型（严格模式）
-* 支持更多的`PSR`规范
-* 原生多应用支持
-* 更强大和易用的查询
-* 全新的事件系统
-* 模型事件和数据库事件统一纳入事件系统
-* 模板引擎分离出核心
-* 内部功能中间件化
-* SESSION/Cookie机制改进
-* 对Swoole以及协程支持改进
-* 对IDE更加友好
-* 统一和精简大量用法
+## TODO
 
-## 安装
-
-~~~
-composer create-project topthink/think tp 6.0.*
-~~~
-
-如果需要更新框架使用
-~~~
-composer update topthink/framework
-~~~
+* 完成文档匿名
+* 完善剩余功能开发
 
 ## 文档
 
-[完全开发手册](https://www.kancloud.cn/manual/thinkphp6_0/content)
+稍后发布
 
-## 参与开发
+## 作者信息
 
-请参阅 [ThinkPHP 核心框架包](https://github.com/top-think/framework)。
+Leslie Leung （也可以叫我阿猫）
+
+Email: lesily9@gmail.com
+
+Blog: https://blog.ameow.xyz
+
+请我喝咖啡/奶茶/喜茶/whatever: 邮件联系
 
 ## 版权信息
+
+tan遵循Apache2开源协议发布，你可以在tan的基础上进行修改，并将其使用到任何需要的地方。
+
+若使用我的代码进行商业活动，请邮件与我联系。另，若使用我的代码作为学校大作业等提交，请务必作出自己的改动，同时邮件与我取得联系。
+
+
+## ThinkPHP版权信息
 
 ThinkPHP遵循Apache2开源协议发布，并提供免费使用。
 
@@ -52,5 +47,3 @@ ThinkPHP遵循Apache2开源协议发布，并提供免费使用。
 All rights reserved。
 
 ThinkPHP® 商标和著作权所有者为上海顶想信息科技有限公司。
-
-更多细节参阅 [LICENSE.txt](LICENSE.txt)
