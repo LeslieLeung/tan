@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://work.ameow.xyz/tan/public/css/login.css">
+    <!-- <link rel="stylesheet" href="login.css"> -->
+
+    <title>tan-智能地摊系统</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js">
+    </script>
+    </head>
+<body>
+<div class="container">
+    <img src="https://work.ameow.xyz/tan/public/img/bg.JPG">
+    <div class="panel">
+        <div class="content login">
+            <div class="title">智能地摊系统</div>
+            <div class="switch">
+                <span id="login" class="active">登录</span>
+                <span>/</span>
+                <span id="signup">注册</span>
+            </div>
+            <form method="post">
+                <div class="input" id="username_box" placeholder="用户名"><input name="username" type="text"></div>
+                <div class="input" id="password_box" placeholder="密码"><input name="password" type="password"></div>
+                <div class="input" id="repeat_box" placeholder="重复密码"><input name="repeat" type="password"></div>
+                <span>忘记密码</span>
+                <button id="submit" onclick="doAjax()" type="button">登录</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#login").click(function () {
+        $(".switch span").removeClass("active");
+        $(this).addClass("active");
+
+        $(this).parents(".content").removeClass('signup');
+        $(this).parents(".content").addClass('login');
+
+        $("form button").text("登录");
+
+    })
+
+    $("#signup").click(function () {
+        $(".switch span").removeClass('active');
+        $(this).addClass('active');
+
+        $(this).parents(".content").removeClass('login');
+        $(this).parents(".content").addClass("signup");
+
+        $("form button").text("注册");
+    })
+
+    $(".input input").on("focus", function () {
+        $(this).parent().addClass("focus");
+    })
+
+    $(".input input").on("blur", function () {
+        if ($(this).val() === '')
+            $(this).parent().removeClass("focus");
+    })
+
+
+    function doAjax(){
+        method = $(".content").attr("class").slice(8);
+        if (method === "login") {
+            data = {
+                username : $("input[name=username]").val(),
+                password : $("input[name=password]").val()
+            };
+            // console.log(data);
+            urlReq = "https://work.ameow.xyz/tan/public/index.php/index/login";
+    
+            $.ajax({
+                url: urlReq,
+                type: "post",
+                data: data,
+                success: function(data) {
+                    if (data.code == 0) {
+                        alert(data.msg);
+                        window.location.replace("product_management.html");
+                    } else {
+                        alert(data.msg);
+                    }
+                }
+            })
+        } else if (method === "signup") {
+            data = {
+                username : $("input[name=username]").val(),
+                password : $("input[name=password]").val(),
+                repeat : $("input[name=repeat]").val()
+            };
+            console.log(data);
+    
+            urlReq = "https://work.ameow.xyz/tan/public/index.php/index/signup";
+    
+            $.ajax({
+                url: urlReq,
+                type: "post",
+                data: data,
+                success: function(data) {
+                    if (data.code == 0) {
+                        alert(data.msg);
+                        window.location.replace("index.html");
+                    } else {
+                        alert(data.msg);
+                    }
+                }
+            })
+        }
+    }
+
+
+
+</script>
+
+</body>
+</html>

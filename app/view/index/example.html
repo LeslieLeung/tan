@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+简单赋值调用
+<!--litera 是用来原样输出的-->
+{literal}
+模板输出 {$name}
+{/literal}
+<br>
+{$name}
+<hr>
+
+数组赋值调用
+{literal}
+模板输出 {$data.name}/{$data.name2}
+{/literal}
+<br>
+{$data.name}/{$data.name2}
+<hr>
+
+二维数组循环 两种方式 foreach | volist <br>
+
+foreach 模板使用 <br>
+{literal}
+{foreach $list as $key=>$vo }<br>
+{$vo.name}<br>
+{/foreach}<br>
+{/literal}
+<br>
+foreach 的 key 从 0 起始 <br>
+{foreach $list as $key=>$vo }
+{$key} >> {$vo.name}<br>
+{/foreach}
+<hr>
+
+volist 模板使用 <br>
+{literal}
+{volist name='list' id='vo' k='i' }<br>
+{$vo.name}<br>
+{/volist}<br>
+{/literal}
+<br>
+volist 的 key 从 1 起始 <br>
+{volist name='list' id='vo' k='i' }
+{$i} >> {$vo.name}<br>
+{/volist}
+
+<hr>
+使用函数 {literal} {:函数名} {/literal}<br>
+使用 MD5() 函数加密 $data.name <br>
+如 {literal} {:MD5($data.name)} / {$data.name | md5} {/literal} <br>
+加密后 {:MD5($data.name)} / {$data.name | md5}
+<hr>
+默认值 default <br>
+{literal} {$data.names|default="没有字符串的时候出现我"} {/literal} <br>
+{$data.names|default="没有字符串的时候出现我"}
+
+</body>
+</html>
